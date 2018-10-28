@@ -2,19 +2,10 @@ require "test_helper"
 
 require "monban/use_case/auth/token/renew"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Auth::Token::RenewTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
-
-    def self.renew_token_expired!
-      raise self, "renew_token_expired"
-    end
-
-    def self.server_error!(params)
-      raise self, "server_error"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Logger

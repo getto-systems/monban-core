@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -8,7 +9,7 @@ module Monban
       class Fetch < Base
 
         initialize_with(
-          error: [:invalid_params!],
+          error: Monban::Core::ERRORS,
           repository: [
             :login_id,
             :reset_password_email,

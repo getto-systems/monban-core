@@ -2,14 +2,10 @@ require "test_helper"
 
 require "monban/use_case/account/register"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Account::RegisterTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
-    def self.conflict!(params)
-      raise self, "conflict"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Time

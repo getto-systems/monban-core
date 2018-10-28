@@ -2,17 +2,10 @@ require "test_helper"
 
 require "monban/use_case/account/change/login_id"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Account::Change::LoginIdTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
-    def self.not_found!(params)
-      raise self, "not_found"
-    end
-    def self.conflict!(params)
-      raise self, "conflict"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Time

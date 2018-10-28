@@ -2,11 +2,10 @@ require "test_helper"
 
 require "monban/use_case/auth/token/general"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Auth::Token::GeneralTest
-  class AppError < RuntimeError
-    def self.server_error!(*args)
-      raise self, "server_error: #{args.join " "}"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class FullToken < Monban::UseCase::Auth::Token::Full

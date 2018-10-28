@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -8,7 +9,7 @@ module Monban
       class Account < Base
 
         initialize_with(
-          error: [:invalid_params!, :invalid_account!],
+          error: Monban::Core::ERRORS,
           time:  [:now],
 
           account: ::Hash,

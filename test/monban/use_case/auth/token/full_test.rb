@@ -2,14 +2,10 @@ require "test_helper"
 
 require "monban/use_case/auth/token/full"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Auth::Token::FullTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
-    def self.server_error!(params)
-      raise self, "server_error"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Logger
