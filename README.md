@@ -1,0 +1,3 @@
+# rubygems-core
+
+Monban - core
