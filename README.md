@@ -4,6 +4,8 @@
 
 [Monban](https://github.com/getto-systems/rubygems-monban-core) - core
 
+The authentication plugin for web api based on jwt
+
 
 ###### Table of Contents
 
