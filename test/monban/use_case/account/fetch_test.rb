@@ -2,11 +2,10 @@ require "test_helper"
 
 require "monban/use_case/account/fetch"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Account::FetchTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Repository

@@ -2,14 +2,10 @@ require "test_helper"
 
 require "monban/use_case/auth/verify/reset_token"
 
+require "monban/core_test/app_error"
+
 module Monban::UseCase::Auth::Verify::ResetTokenTest
-  class AppError < RuntimeError
-    def self.invalid_params!(params)
-      raise self, "invalid_params"
-    end
-    def self.invalid_account!(params)
-      raise self, "invalid_account"
-    end
+  class AppError < Monban::CoreTest::AppError
   end
 
   class Time

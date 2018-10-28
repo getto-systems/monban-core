@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -9,7 +10,7 @@ module Monban
         class LoginId < Base
 
           initialize_with(
-            error: [:invalid_params!, :not_found!, :conflict!],
+            error: Monban::Core::ERRORS,
             time:  [:now],
             repository: [
               :transaction,

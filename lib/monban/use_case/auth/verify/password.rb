@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -10,7 +11,7 @@ module Monban
           include Getto::InitializeWith
 
           initialize_with(
-            error: [:invalid_params!, :invalid_account!, :invalid_login!],
+            error: Monban::Core::ERRORS,
             repository: [
               :account_id_by_login_id,
               :password_salt,

@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -9,7 +10,7 @@ module Monban
         class Authy < Base
 
           initialize_with(
-            error: [:invalid_params!, :invalid_account!],
+            error: Monban::Core::ERRORS,
             authy: [:verify],
             repository: [
               :authy_id,

@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 require "monban/use_case/auth/token"
 
@@ -11,7 +12,7 @@ module Monban
           include Token::Helper
 
           initialize_with(
-            error:  [:invalid_params!, :server_error!],
+            error:  Monban::Core::ERRORS,
             logger: [:log],
             time:   [:now],
             token:  [:create],

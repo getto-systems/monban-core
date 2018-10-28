@@ -1,3 +1,4 @@
+require "monban/core"
 require "getto/initialize_with"
 
 require "monban/use_case/auth/token/full"
@@ -11,7 +12,7 @@ module Monban
           include Getto::InitializeWith
 
           initialize_with(
-            error: [:server_error!],
+            error: Monban::Core::ERRORS,
             login: Symbol,
             full:  Full,
             authy: Authy,

@@ -22,6 +22,26 @@ The authentication plugin for web api based on jwt
 <a id="Usage"></a>
 ## Usage
 
+### Errors
+
+`error` class should be respond to below methods
+
+```ruby
+module Monban
+  module Core
+    ERRORS = [
+      :invalid_account!,
+      :invalid_login!,
+      :invalid_params!,
+      :not_found!,
+      :renew_token_expired!,
+      :conflict!,
+      :server_error!,
+    ]
+  end
+end
+```
+
 ## Install
 
 Add this line to your application's Gemfile:

@@ -1,3 +1,4 @@
+require "monban/core"
 require "monban/use_case/base"
 
 require "getto/params"
@@ -8,7 +9,7 @@ module Monban
       class Unregister < Base
 
         initialize_with(
-          error: [:invalid_params!, :not_found!],
+          error: Monban::Core::ERRORS,
           repository: [
             :transaction,
             :account_exists?,
