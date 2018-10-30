@@ -13,17 +13,20 @@ module Monban
 
           initialize_with(
             error: Monban::Core::ERRORS,
-            login: Symbol,
+            repository: [
+              :login_type,
+            ],
             full:  Full,
             authy: Authy,
           )
 
           def create(account_id:)
+            login = repository.login_type(account_id: account_id)
             case login
-            when :full  then full.create(account_id: account_id)
-            when :authy then authy.create(account_id: account_id)
+            when "full"  then full.create(account_id: account_id)
+            when "authy" then authy.create(account_id: account_id)
             else
-              error.server_error! "invalid login: #{login}"
+              error.server_error! "invalid login: #{login} / #{account_id}"
             end
           end
 

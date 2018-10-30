@@ -8,6 +8,16 @@ module Monban::UseCase::Auth::Token::GeneralTest
   class AppError < Monban::CoreTest::AppError
   end
 
+  class Repository
+    def initialize(params)
+      @params = params
+    end
+
+    def login_type(params)
+      @params[:login_type]
+    end
+  end
+
   class FullToken < Monban::UseCase::Auth::Token::Full
     def initialize
     end
@@ -29,10 +39,14 @@ module Monban::UseCase::Auth::Token::GeneralTest
   describe Monban::UseCase::Auth::Token::General do
     describe "create" do
       it "create full token with full login type" do
+        repository = Repository.new(
+          login_type: "full",
+        )
+
         assert_equal(
           Monban::UseCase::Auth::Token::General.new(
             error: AppError,
-            login: :full,
+            repository: repository,
             full:  FullToken.new,
             authy: AuthyToken.new,
           )
@@ -45,10 +59,14 @@ module Monban::UseCase::Auth::Token::GeneralTest
       end
 
       it "create authy token with authy login type" do
+        repository = Repository.new(
+          login_type: "authy",
+        )
+
         assert_equal(
           Monban::UseCase::Auth::Token::General.new(
             error: AppError,
-            login: :authy,
+            repository: repository,
             full:  FullToken.new,
             authy: AuthyToken.new,
           )
@@ -61,10 +79,14 @@ module Monban::UseCase::Auth::Token::GeneralTest
       end
 
       it "raise error with unknown login type" do
+        repository = Repository.new(
+          login_type: "unknown",
+        )
+
         assert_raises AppError do
           Monban::UseCase::Auth::Token::General.new(
             error: AppError,
-            login: :unknown,
+            repository: repository,
             full:  FullToken.new,
             authy: AuthyToken.new,
           )
