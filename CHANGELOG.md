@@ -1,3 +1,7 @@
+# Version : 1.2.0
+
+fix: authy verify error message
+
 # Version : 1.1.0
 
 fix: detect login_type from account on general token
