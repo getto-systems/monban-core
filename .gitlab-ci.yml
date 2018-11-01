@@ -7,13 +7,15 @@ cache:
 test:
   except:
     - tags
+    - master
+    - release
   script:
     - bundle
     - bundle exec rake
 
 release:
   only:
-    - release@monban/rubygens-core
+    - release@monban/rubygems-core
   script:
     - "git remote add super https://gett-systems:$GITLAB_ACCESS_TOKEN@gitlab.com/cathands-sendai/staff/auth.git"
     - "git remote add github https://getto-systems:$GITHUB_ACCESS_TOKEN@github.com/getto-systems/rubygems-monban-core.git"
