@@ -32,7 +32,7 @@ module Monban
             authy.verify(
               authy_id:    authy_id,
               authy_token: params[:authy_token],
-            ) or error.invalid_account! "authy_token unmatched"
+            ) or error.invalid_account! "authy_token unmatched: #{authy_id}/#{params[:authy_token]}"
 
             nil
           end
