@@ -1,3 +1,7 @@
+# Version : 1.2.1
+
+fix: gitlab-ci
+
 # Version : 1.2.0
 
 fix: authy verify error message
