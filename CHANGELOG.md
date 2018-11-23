@@ -1,3 +1,7 @@
+# Version : 1.2.4
+
+fix: gitlab-ci
+
 # Version : 1.2.3
 
 fix: variables
