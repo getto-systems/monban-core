@@ -1,3 +1,7 @@
+# Version : 1.2.5
+
+fix: repository
+
 # Version : 1.2.4
 
 fix: gitlab-ci
